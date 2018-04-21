@@ -1,26 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
 class memoList extends React.Component {
   render() {
     return (
       <View style={styles.memoList}>
-        <View style={styles.memoListItem}>
-          <Text style={styles.memoTitle}>講座のアイテム</Text>
-          <Text style={styles.memoDate}>2018/4/13</Text>
-        </View>
-        <View style={styles.memoListItem}>
-          <Text style={styles.memoTitle}>講座のアイテム</Text>
-          <Text style={styles.memoDate}>2018/4/13</Text>
-        </View>
-        <View style={styles.memoListItem}>
-          <Text style={styles.memoTitle}>講座のアイテム</Text>
-          <Text style={styles.memoDate}>2018/4/13</Text>
-        </View>
-        <View style={styles.memoListItem}>
-          <Text style={styles.memoTitle}>講座のアイテム</Text>
-          <Text style={styles.memoDate}>2018/4/1</Text>
-        </View>
+        <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
+          <View style={styles.memoListItem}>
+            <Text style={styles.memoTitle}>講座</Text>
+            <Text style={styles.memoDate}>2018/4/13</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
+          <View style={styles.memoListItem}>
+            <Text style={styles.memoTitle}>講座のアイテム</Text>
+            <Text style={styles.memoDate}>2018/4/13</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
+          <View style={styles.memoListItem}>
+            <Text style={styles.memoTitle}>アイテム</Text>
+            <Text style={styles.memoDate}>2018/4/13</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
+          <View style={styles.memoListItem}>
+            <Text style={styles.memoTitle}>のアイテム</Text>
+            <Text style={styles.memoDate}>2018/4/13</Text>
+          </View>
+        </TouchableHighlight>
       </View>
     );
   }
