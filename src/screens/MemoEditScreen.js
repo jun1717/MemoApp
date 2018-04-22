@@ -12,7 +12,7 @@ class MemoEditScreen extends React.Component {
           value="hi"
           multiline
         />
-        <CircleButton>
+        <CircleButton onPress={() => { this.props.navigation.goBack(); }}>
           {'\uf00c'}
         </CircleButton>
       </View>
