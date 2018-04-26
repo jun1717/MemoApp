@@ -1,35 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, FlatList } from 'react-native';
 
 class memoList extends React.Component {
+  renderMemo({ item }) {
+    return (
+      <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
+        <View style={styles.memoListItem}>
+          <Text style={styles.memoTitle}>{item.body}</Text>
+          <Text style={styles.memoDate}>2018/4/25</Text>
+        </View>
+      </TouchableHighlight>
+    );
+  }
   render() {
-    console.log(this.props.memoList);
     return (
       <View style={styles.memoList}>
-        <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
-          <View style={styles.memoListItem}>
-            <Text style={styles.memoTitle}>講座</Text>
-            <Text style={styles.memoDate}>2018/4/13</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
-          <View style={styles.memoListItem}>
-            <Text style={styles.memoTitle}>講座のアイテム</Text>
-            <Text style={styles.memoDate}>2018/4/13</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
-          <View style={styles.memoListItem}>
-            <Text style={styles.memoTitle}>アイテム</Text>
-            <Text style={styles.memoDate}>2018/4/13</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
-          <View style={styles.memoListItem}>
-            <Text style={styles.memoTitle}>のアイテム</Text>
-            <Text style={styles.memoDate}>2018/4/13</Text>
-          </View>
-        </TouchableHighlight>
+        <FlatList data={this.props.memoList} renderItem={this.renderMemo.bind(this)} />
       </View>
     );
   }
