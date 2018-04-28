@@ -12,9 +12,11 @@ class MemoDetailScreen extends React.Component {
     memo: {},
   }
   componentWillMount() {
-    console.log('params', params);
     const { params } = this.props.navigation.state;
     this.setState({ memo: params.memo });
+  }
+  returnMemo(memo) {
+    this.setState({ memo });
   }
   render() {
     const { memo } = this.state;
@@ -31,7 +33,7 @@ class MemoDetailScreen extends React.Component {
             {memo.body}
           </Text>
         </View>
-        <CircleButton color="white" style={styles.editButton} onPress={() => { this.props.navigation.navigate('MemoEdit', { memo }); }}>
+        <CircleButton color="white" style={styles.editButton} onPress={() => { this.props.navigation.navigate('MemoEdit', { ...memo, returnMemo: this.returnMemo.bind(this) }); }}>
           {'\uf040'}
         </CircleButton>
       </View>
