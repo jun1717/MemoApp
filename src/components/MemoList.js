@@ -7,7 +7,6 @@ const dateString = (date) => {
 };
 class memoList extends React.Component {
   renderMemo({ item }) {
-    console.log('item', item);
     return (
       <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail', { memo: item }); }}>
         <View style={styles.memoListItem}>

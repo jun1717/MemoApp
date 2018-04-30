@@ -21,17 +21,6 @@ class MemoListScreen extends React.Component {
         this.setState({ memoList: list });
       });
   }
-  // .get()
-  // .then((snapshot) => {
-  //   const list = [];
-  //   snapshot.forEach((doc) => {
-  //     list.push({ ...doc.data(), key: doc.id });
-  //   });
-  //   this.setState({ memoList: list });
-  // })
-  // .catch((error) => {
-  //   console.log(error);
-  // });
   handlePress() {
     this.props.navigation.navigate('MemoCreate');
   }
